@@ -9,6 +9,12 @@ D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\De
 D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\System.Data.SqlClient.dll
+D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\obj\Debug\net6.0\AppSettingsAssignment.csproj.AssemblyReference.cache
 D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\obj\Debug\net6.0\AppSettingsAssignment.GeneratedMSBuildEditorConfig.editorconfig
 D:\.NET\ASP.NET Core Training\AppSettingsAssignment\AppSettingsAssignment\obj\Debug\net6.0\AppSettingsAssignment.AssemblyInfoInputs.cache
