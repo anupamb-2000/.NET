@@ -23,21 +23,25 @@ namespace AppSettingsAssignment.Controllers
         [Route("student/getstudentnames")]
         public IActionResult GetStudentNames()
         {
-            //var list = new List<string>();
             var student = new StudentNames();
             _configuration.GetSection("Student").Bind(student);
-            //foreach (var name in names)
-            //{
-            //    list.Add(name);
-            //}
             return Ok(student.Names);
         }
 
         [HttpGet]
-        [Route("student/getstudentsdatasp")]
-        public async Task<List<Students>> GetStudentsDataSp()
+        [Route("student/getstudentsdata")]
+        public async Task<List<Students>> GetStudentsData()
         {
-            List<Students> result = await studentsService.GetStudentsDataSp();
+            List<Students> result = await studentsService.GetStudentsData();
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("student/getstudentsdatabyid/{id}")]
+        public async Task<Students> GetStudentsDataById([FromRoute] int id)
+        {
+            Students result = await studentsService.GetStudentsDataById(id);
 
             return result;
         }

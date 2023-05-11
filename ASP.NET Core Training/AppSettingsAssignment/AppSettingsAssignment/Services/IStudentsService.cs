@@ -4,6 +4,7 @@ namespace AppSettingsAssignment
 {
     public interface IStudentsService
     {
-        Task<List<Students>> GetStudentsDataSp();
+        Task<List<Students>> GetStudentsData();
+        Task<Students> GetStudentsDataById(int id);
     }
 }
