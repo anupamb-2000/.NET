@@ -1,0 +1,8 @@
+CREATE TABLE STUDENT 
+(
+	ID INT IDENTITY,
+	AdmsnNo INT,
+	Name VARCHAR(250),
+	Class INT,
+	Address VARCHAR(500)
+)
