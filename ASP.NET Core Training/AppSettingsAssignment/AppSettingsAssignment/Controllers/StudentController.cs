@@ -3,6 +3,7 @@ using AppSettingsAssignment.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using System.Data.SqlClient;
+using System.Net;
 
 namespace AppSettingsAssignment.Controllers
 {
@@ -39,11 +40,20 @@ namespace AppSettingsAssignment.Controllers
 
         [HttpGet]
         [Route("student/getstudentsdatabyid/{id}")]
-        public async Task<Students> GetStudentsDataById([FromRoute] int id)
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetStudentsDataById([FromRoute] int id)
         {
             Students result = await studentsService.GetStudentsDataById(id);
-
-            return result;
+         
+            if (result.Id == -1)
+            {
+                return NoContent();
+            }
+            else 
+            { 
+                return Ok(result); 
+            }
         }
     }
 }
