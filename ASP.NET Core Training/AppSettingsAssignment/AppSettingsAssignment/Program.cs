@@ -1,4 +1,5 @@
 using AppSettingsAssignment;
+using AppSettingsAssignment.Extensions.Startup;
 using AppSettingsAssignment.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddMapper();
+builder.Services.AddDatabaseContexts(builder.Configuration);
 builder.Services.AddScoped<IStudentsService,StudentsService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

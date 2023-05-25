@@ -1,5 +1,7 @@
-﻿using AppSettingsAssignment.Model;
+﻿using AppSettingsAssignment.DataModels;
+using AppSettingsAssignment.Model;
 using AppSettingsAssignment.Services;
+using AppSettingsAssignment.ViewModels.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using System.Data.SqlClient;
@@ -31,9 +33,18 @@ namespace AppSettingsAssignment.Controllers
 
         [HttpGet]
         [Route("student/getstudentsdata")]
-        public async Task<List<Students>> GetStudentsData()
+        public async Task<List<StudentResponse>> GetStudentsData()
         {
-            List<Students> result = await studentsService.GetStudentsData();
+            List<StudentResponse> result = await studentsService.GetStudentsData();
+
+            return result;
+        }
+
+        [HttpGet]
+        [Route("student/getstudentsdataef")]
+        public async Task<IEnumerable<StudentResponse>> GetStudentsDataEf()
+        {
+            IEnumerable<StudentResponse> result = await studentsService.GetStudentsDataEf();
 
             return result;
         }
@@ -44,9 +55,9 @@ namespace AppSettingsAssignment.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> GetStudentsDataById([FromRoute] int id)
         {
-            Students result = await studentsService.GetStudentsDataById(id);
+            StudentResponse result = await studentsService.GetStudentsDataById(id);
          
-            if (result.Id == -1)
+            if (result == null)
             {
                 return NoContent();
             }
@@ -55,5 +66,41 @@ namespace AppSettingsAssignment.Controllers
                 return Ok(result); 
             }
         }
+
+        [HttpGet]
+        [Route("student/getstudentsdatabyidef/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> GetStudentsDataByIdEf([FromRoute] int id)
+        {
+            StudentResponse result = await studentsService.GetStudentsDataByIdEf(id);
+
+            if (result == null)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
+
+        //[HttpPost]
+        //[Route("student/createstudent")]
+        //[ProducesResponseType(StatusCodes.Status200OK)]
+        //[ProducesResponseType(StatusCodes.Status204NoContent)]
+        //public async Task<IActionResult> CreateStudent([FromBody] int id)
+        //{
+        //    StudentsDataModel result = await studentsService.GetStudentsDataByIdEf(id);
+
+        //    if (result == null)
+        //    {
+        //        return NoContent();
+        //    }
+        //    else
+        //    {
+        //        return Ok(result);
+        //    }
+        //}
     }
 }
