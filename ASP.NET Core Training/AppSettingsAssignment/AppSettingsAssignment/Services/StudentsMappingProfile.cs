@@ -1,4 +1,5 @@
 ﻿using AppSettingsAssignment.DataModels;
+using AppSettingsAssignment.ViewModels.Request;
 using AppSettingsAssignment.ViewModels.Response;
 using AutoMapper;
 
@@ -13,6 +14,7 @@ namespace AppSettingsAssignment.Services
         private void SetupMapping() 
         {
             CreateMap<StudentsDataModel, StudentResponse>().ReverseMap();
+            CreateMap<StudentsDataModel, AddStudentRequest>().ReverseMap();
         }
     }
 }

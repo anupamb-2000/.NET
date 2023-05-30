@@ -1,6 +1,7 @@
 ﻿using AppSettingsAssignment.DataModels;
 using AppSettingsAssignment.Model;
 using AppSettingsAssignment.Services;
+using AppSettingsAssignment.ViewModels.Request;
 using AppSettingsAssignment.ViewModels.Response;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
@@ -85,22 +86,51 @@ namespace AppSettingsAssignment.Controllers
             }
         }
 
-        //[HttpPost]
-        //[Route("student/createstudent")]
-        //[ProducesResponseType(StatusCodes.Status200OK)]
-        //[ProducesResponseType(StatusCodes.Status204NoContent)]
-        //public async Task<IActionResult> CreateStudent([FromBody] int id)
-        //{
-        //    StudentsDataModel result = await studentsService.GetStudentsDataByIdEf(id);
+        [HttpPost]
+        [Route("student/createstudent")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> CreateStudent([FromBody] AddStudentRequest student)
+        {
+            var result = await studentsService.CreateStudent(student);
 
-        //    if (result == null)
-        //    {
-        //        return NoContent();
-        //    }
-        //    else
-        //    {
-        //        return Ok(result);
-        //    }
-        //}
+            return result;
+        }
+
+        [HttpPut]
+        [Route("student/updatestudent")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> UpdateStudent([FromBody] UpdateStudentRequest student)
+        {
+            var result = await studentsService.UpdateStudent(student);
+
+            if (result == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
+
+        [HttpDelete]
+        [Route("student/updatestudent/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteStudent([FromRoute] int id)
+        {
+            var result = await studentsService.DeleteStudent(id);
+
+            if (result == null)
+            {
+                return NoContent();
+            }
+            else
+            {
+                return Ok(result);
+            }
+        }
     }
 }
