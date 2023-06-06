@@ -107,7 +107,7 @@ namespace AppSettingsAssignment.Controllers
 
             if (result == null)
             {
-                return BadRequest();
+                return BadRequest("Invalid Admsn No");
             }
             else
             {
